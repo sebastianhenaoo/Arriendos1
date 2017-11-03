@@ -17,6 +17,7 @@ namespace Arriendos.Models
         [Required]
         public string Apellido { get; set; }
         public string Direccion { get; set; }
+        public byte[] FotoPerfil { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -31,6 +32,7 @@ namespace Arriendos.Models
     {
         public DbSet<Ciudad> ciudades { get; set; }
         public DbSet<Departamento> departamentos { get; set; }
+        public DbSet<Foto> Fotos { get; set; }
         public DbSet<Postular> postulaciones { get; set; }
         public DbSet<Propiedad> propiedades { get; set; }
 

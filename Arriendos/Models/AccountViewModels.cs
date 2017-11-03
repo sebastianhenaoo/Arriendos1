@@ -87,6 +87,7 @@ namespace Arriendos.Models
         [Required]
         public string Apellido { get; set; }
         public string Direccion { get; set; }
+        public byte[] FotoPerfil { get; set; }
     }
 
     public class ResetPasswordViewModel

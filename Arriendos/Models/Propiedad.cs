@@ -14,7 +14,8 @@ namespace Arriendos.Models
         public string Direccion { get; set; }
         public double Precio { get; set; }
         public int IdCiudad { get; set; }
-
+        public string Descripcion { get; set; }
+        public bool Estado { get; set; } // true=disponible, false=ocupado
         public virtual ApplicationUser Usuario { get; set; }
 
         [ForeignKey("IdCiudad")]

@@ -49,6 +49,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SqlBulkCopy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51331b1e3402a75f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlBulkCopy.1.0.0\lib\net40\SqlBulkCopy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -198,9 +201,9 @@
     <Compile Include="Migrations\201710192325510_first.Designer.cs">
       <DependentUpon>201710192325510_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710200014225_second.cs" />
-    <Compile Include="Migrations\201710200014225_second.Designer.cs">
-      <DependentUpon>201710200014225_second.cs</DependentUpon>
+    <Compile Include="Migrations\201710272337043_second.cs" />
+    <Compile Include="Migrations\201710272337043_second.Designer.cs">
+      <DependentUpon>201710272337043_second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -294,8 +297,8 @@
     <EmbeddedResource Include="Migrations\201710192325510_first.resx">
       <DependentUpon>201710192325510_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710200014225_second.resx">
-      <DependentUpon>201710200014225_second.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710272337043_second.resx">
+      <DependentUpon>201710272337043_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

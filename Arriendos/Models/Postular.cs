@@ -14,8 +14,8 @@ namespace Arriendos.Models
         public int IdPropiedad { get; set; }
 
         [ForeignKey("IdPropiedad")]
-        public Propiedad propiedad { get; set; }
-        public ApplicationUser usuario { get; set; }
+        public virtual Propiedad propiedad { get; set; }
+        public virtual ApplicationUser usuario { get; set; }
 
 
     }
