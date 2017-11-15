@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Perfil</h2>
+
+<div class="col-md-4">
+    <div id="_UsuarioLogeado"></div>
+
+</div>
+
+<div class="col-md-4">
+
+
+</div>
+
+<div class="col-md-4">
+    <div id="CrearInmueble"></div>
+
+</div>
+
+
+@section scripts {   
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: '/Propiedades/Create',
+                cache: false,
+                dataType: "html",
+                success: function (data) {
+                    $('#CrearInmueble').html(data);
+                }
+            });
+        });
+        $(function () {
+            $.ajax({
+                url: '/Perfil/DataUsuarioActual',
+                cache: false,
+                dataType: "html",
+                success: function (data) {
+                    $('#_UsuarioLogeado').html(data);
+                }
+            });
+        });
+    </script>
+}

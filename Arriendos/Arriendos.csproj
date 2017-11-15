@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -192,8 +193,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BehaviorController.cs" />
+    <Compile Include="Controllers\FotosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\PostularseController.cs" />
+    <Compile Include="Controllers\PropiedadesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,9 +280,27 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Fotos\Create.cshtml" />
+    <Content Include="Views\Fotos\Delete.cshtml" />
+    <Content Include="Views\Fotos\Details.cshtml" />
+    <Content Include="Views\Fotos\Edit.cshtml" />
+    <Content Include="Views\Fotos\Index.cshtml" />
+    <Content Include="Views\Postularse\Create.cshtml" />
+    <Content Include="Views\Postularse\Delete.cshtml" />
+    <Content Include="Views\Postularse\Details.cshtml" />
+    <Content Include="Views\Postularse\Edit.cshtml" />
+    <Content Include="Views\Postularse\Index.cshtml" />
+    <Content Include="Views\Propiedades\Create.cshtml" />
+    <Content Include="Views\Propiedades\Delete.cshtml" />
+    <Content Include="Views\Propiedades\Details.cshtml" />
+    <Content Include="Views\Propiedades\Edit.cshtml" />
+    <Content Include="Views\Propiedades\Index.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\_UsuarioLogeado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Behavior\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
