@@ -16,6 +16,8 @@ namespace Arriendos.Models
         public int IdCiudad { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; } // true=disponible, false=ocupado
+        public string IdUsuario { get; set; }
+        [ForeignKey("IdUsuario")]
         public virtual ApplicationUser Usuario { get; set; }
 
         [ForeignKey("IdCiudad")]

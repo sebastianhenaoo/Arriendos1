@@ -12,9 +12,12 @@ namespace Arriendos.Models
         [Key]
         public int Id { get; set; }
         public int IdPropiedad { get; set; }
+        public string IdUsuario { get; set; }
 
         [ForeignKey("IdPropiedad")]
         public virtual Propiedad propiedad { get; set; }
+
+        [ForeignKey("IdUsuario")]
         public virtual ApplicationUser usuario { get; set; }
 
 

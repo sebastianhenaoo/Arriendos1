@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201710272337043_second.Designer.cs">
       <DependentUpon>201710272337043_second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151852580_third-migration.cs" />
+    <Compile Include="Migrations\201711151852580_third-migration.Designer.cs">
+      <DependentUpon>201711151852580_third-migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Ciudad.cs" />
@@ -290,13 +294,13 @@
     <Content Include="Views\Postularse\Details.cshtml" />
     <Content Include="Views\Postularse\Edit.cshtml" />
     <Content Include="Views\Postularse\Index.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\_UsuarioLogeado.cshtml" />
     <Content Include="Views\Propiedades\Create.cshtml" />
     <Content Include="Views\Propiedades\Delete.cshtml" />
     <Content Include="Views\Propiedades\Details.cshtml" />
     <Content Include="Views\Propiedades\Edit.cshtml" />
     <Content Include="Views\Propiedades\Index.cshtml" />
-    <Content Include="Views\Perfil\Index.cshtml" />
-    <Content Include="Views\Perfil\_UsuarioLogeado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710272337043_second.resx">
       <DependentUpon>201710272337043_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151852580_third-migration.resx">
+      <DependentUpon>201711151852580_third-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
