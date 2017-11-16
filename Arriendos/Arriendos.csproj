@@ -296,7 +296,7 @@
     <Content Include="Views\Perfil\_MostrarInmueblesUsuario.cshtml" />
     <Content Include="Views\Propiedades\_Create.cshtml" />
     <Content Include="Views\Propiedades\Index.cshtml" />
-    <Content Include="Views\Propiedades\_Galeria.cshtml" />
+    <Content Include="Views\Propiedades\Galeria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

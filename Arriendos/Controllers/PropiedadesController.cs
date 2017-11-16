@@ -29,7 +29,7 @@ namespace Arriendos.Controllers
             BehaviorController behavior = new BehaviorController();
             var propiedad = db.propiedades.Where(p => p.Id == id).Include(p => p.ciudad).Include(p => p.Fotos).ToList();
             //var propiedad = behavior.PropiedadSeleccionada(id);
-            return PartialView("_Galeria", propiedad);
+            return View("Galeria", propiedad);
         }
         // GET: Propiedades/Details/5
          public ActionResult Postular (int? id)
