@@ -297,6 +297,7 @@
     <Content Include="Views\Propiedades\_Create.cshtml" />
     <Content Include="Views\Propiedades\Index.cshtml" />
     <Content Include="Views\Propiedades\_Galeria.cshtml" />
+    <Content Include="Views\Propiedades\_ErrorPostular.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

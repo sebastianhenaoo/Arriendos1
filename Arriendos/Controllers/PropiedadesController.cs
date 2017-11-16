@@ -38,19 +38,35 @@ namespace Arriendos.Controllers
             int idPropiedad = db.propiedades.Find(id).Id;
             string idusuario = User.Identity.GetUserId();
             BehaviorController behavior = new BehaviorController();
-          
-            Postular postular = new Postular()
+            Propiedad inmueble = db.propiedades.Find(idPropiedad);
+            //var inmueble = behavior.PropiedadSeleccionada(idPropiedad);
+            if (idusuario.Equals(inmueble.IdUsuario))
             {
-                IdPropiedad = idPropiedad,
-                IdUsuario = idusuario
-
-            };
-            if (behavior.Postular(postular))
-            {
-                return RedirectToAction("Index");
-
+                ViewBag.Mensaje = "Error al postular, este usuario es el propietario del inmueble";
+                return PartialView("_ErrorPostular");
             }
-            return RedirectToAction("Index");
+            else{
+                if (db.postulaciones.Where(p => p.IdUsuario == idusuario && p.IdPropiedad == idPropiedad).Count()>0)
+                {
+                    ViewBag.Mensaje = "Error al postular, este usuario ya esta postulado para esta propiedad";
+                    return PartialView("_ErrorPostular");
+                }
+                else
+                {
+                    Postular postular = new Postular()
+                    {
+                        IdPropiedad = idPropiedad,
+                        IdUsuario = idusuario
+
+                    };
+                    if (behavior.Postular(postular))
+                    {
+                        return RedirectToAction("Index", "Perfil");
+
+                    }
+                }
+            }
+            return RedirectToAction("Index", "Perfil");
         }
 
         // GET: Propiedades/Create
