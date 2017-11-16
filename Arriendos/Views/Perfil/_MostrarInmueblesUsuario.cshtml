@@ -3,26 +3,27 @@
         ViewBag.Title = "Index";
     }
 
-    <h2>Index</h2>
+ <center>
+    <h2 class="titulo-prop">Mis propiedades</h2>
+</center>
+<br>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th></th>
+    </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Direccion)
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Direccion)
-                </td>
-            </tr>
-        }
+</table>
 
-    </table>
+
