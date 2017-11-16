@@ -23,8 +23,15 @@ namespace Arriendos.Controllers
             return View(propiedades.ToList());
         }
 
+        public ActionResult Galeria(int id)
+        {
+            BehaviorController behavior = new BehaviorController();
+            var propiedad = db.propiedades.Where(p => p.Id == id).Include(p => p.ciudad).Include(p => p.Fotos).ToList();
+            //var propiedad = behavior.PropiedadSeleccionada(id);
+            return PartialView("_Galeria", propiedad);
+        }
         // GET: Propiedades/Details/5
-         public ActionResult Details (int? id)
+        public ActionResult Details (int? id)
         {
              
             int idPropiedad = db.propiedades.Find(id).Id;

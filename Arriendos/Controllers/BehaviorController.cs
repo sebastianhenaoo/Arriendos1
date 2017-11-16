@@ -25,6 +25,11 @@ namespace Arriendos.Controllers
             ApplicationUser Usuarioactual = db.Users.Find(idusuario);
             return Usuarioactual;
         }
+        public dynamic PropiedadSeleccionada(int idpropiedad)
+        {
+            var propiedad = db.propiedades.Where(p => p.Id == idpropiedad).Include(p=>p.ciudad).Include(p=>p.Fotos);
+            return propiedad;
+        }
         public bool CrearPropiedad(Propiedad propiedad)
         {
 
