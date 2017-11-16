@@ -1,0 +1,179 @@
+﻿@model IEnumerable<Arriendos.Models.Propiedad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<center><h2 class="titulo-prop">Propiedades</h2></center>
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 visible-md visible-lg">
+            <div style="background-color:white;width:100%;height:630px;box-shadow:4px 4px 4px gray">
+                <div class="row">
+                    <h3 style="font-weight:bold;color:black;margin-left:8%">Buscar por:</h3>
+                    <div style="margin-left:8%;">
+                        <h4 style="font-weight:bold">Precio</h4>
+                        <input style="margin-top:2%" type="text" placeholder="Min" />
+                        <input type="text" placeholder="Max" />
+                    </div>
+                    <br />
+                    <div style="margin-left:8%">
+                        <h4 style="font-weight:bold">Cuartos</h4>
+                        <input type="checkbox" /> Al menos 1<br />
+                        <input type="checkbox" /> Al menos 2<br />
+                        <input type="checkbox" /> 3 o más<br />
+                    </div>
+                    <br />
+                    <div style="margin-left:8%">
+                        <h4 style="font-weight:bold">Cuartos de baño</h4>
+                        <input type="checkbox" /> Al menos 1<br />
+                        <input type="checkbox" /> Al menos 2<br />
+                        <input type="checkbox" /> 3 o más<br />
+                    </div>
+                    <br />
+                    <div style="margin-left:8%;">
+                        <h4 style="font-weight:bold">Metros cuadrados</h4>
+                        <input style="margin-top:2%" type="text" placeholder="Min" />
+                        <input type="text" placeholder="Max" />
+                    </div>
+                    <br />
+                    <div style="margin-left:8%">
+                        <h4 style="font-weight:bold">Tipo</h4>
+                        <input type="checkbox" /> Apartamento<br />
+                        <input type="checkbox" /> Casa<br />
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div style="height:200px">
+                <center><h3>¿Conoces la dirección?</h3></center>
+                <br />
+                <input id="pac-input" class="controls" type="text" placeholder="Dirección">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        @foreach (var item in Model)
+        {
+            <div class="div-prop">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5">
+                        <img src="http://cdn.trendir.com/wp-content/uploads/2016/09/Glass-Graham-House-by-E.-Cobb-Architects-900x751.jpg" class="img-prop" />
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 visible-md visible-sm visible-lg">
+                        <h3>@Html.DisplayFor(modelItem => item.Direccion)</h3>
+                        <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                        <center>
+                            <form>
+                                <a href="/Home/Galeria" class="btn btn-primary">Ver galería</a> |
+                                <a class="btn btn-success">Postular</a>
+                            </form>
+                        </center>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 visible-md visible-sm visible-lg">
+                        <h3>Precio</h3>
+                        <p style="font-weight:bold"> $ @Html.DisplayFor(modelItem => item.Precio)</p>
+                    </div>
+                    <div class="col-xs-7 visible-xs">
+                        <br />
+                        <center><a class="btn btn-warning">Ver detalles</a></center>
+                        <br />
+                        <center><a class="btn btn-success">Postular</a></center>
+                        <br />
+                        <center><a href="/Home/Galeria" class="btn btn-primary">Ver galería</a></center>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+</div>
+<br /><br /><br />
+
+@section scripts{
+
+    <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 6.15, lng: -75.367},
+          zoom: 13,
+          mapTypeId: 'roadmap'
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlu8ybISGUAKorjj4B1E7T_12D9J1nUws&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
+}
