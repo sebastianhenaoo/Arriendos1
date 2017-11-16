@@ -16,6 +16,7 @@ namespace Arriendos.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Propiedades
+        [Authorize]
         public ActionResult Index()
         {
 
