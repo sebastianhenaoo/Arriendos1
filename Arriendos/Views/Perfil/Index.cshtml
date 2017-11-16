@@ -3,21 +3,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Perfil</h2>
+<br />
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-4">
+            <center>
+                <h2 class="titulo-prop">Perfil</h2>
+            </center>
+            <br />
+            <div id="_UsuarioLogeado">
+
+            </div>
+        </div>
 
 <div class="col-md-4">
-    <div id="_UsuarioLogeado"></div>
+    <div id="_MostrarInmuebleUsuario">
+
+    </div>
 
 </div>
-
-<div class="col-md-4">
-
-
+<div class="col-md-7">
+    <div id="CrearInmueble">
 </div>
 
-<div class="col-md-4">
-    <div id="CrearInmueble"></div>
-
+        </div>
+    </div>
 </div>
 
 
@@ -40,6 +50,16 @@
                 dataType: "html",
                 success: function (data) {
                     $('#_UsuarioLogeado').html(data);
+                }
+            });
+        });
+        $(function () {
+            $.ajax({
+                url: '/Perfil/MostrarInmueblesUsuario',
+                cache: false,
+                dataType: "html",
+                success: function (data) {
+                    $('#_MostrarInmuebleUsuario').html(data);
                 }
             });
         });

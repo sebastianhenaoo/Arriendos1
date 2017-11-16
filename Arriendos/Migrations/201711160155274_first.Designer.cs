@@ -13,7 +13,7 @@ namespace Arriendos.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201710192325510_first"; }
+            get { return "201711160155274_first"; }
         }
         
         string IMigrationMetadata.Source

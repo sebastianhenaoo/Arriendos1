@@ -7,13 +7,13 @@ namespace Arriendos.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class thirdmigration : IMigrationMetadata
+    public sealed partial class firstmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(thirdmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(firstmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711151852580_third-migration"; }
+            get { return "201711161613232_first-migration"; }
         }
         
         string IMigrationMetadata.Source
