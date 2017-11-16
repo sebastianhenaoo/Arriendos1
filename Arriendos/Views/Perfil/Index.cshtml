@@ -11,7 +11,7 @@
 </div>
 
 <div class="col-md-4">
-
+    <div id="_MostrarInmueblesUsuario"></div>
 
 </div>
 
@@ -40,6 +40,16 @@
                 dataType: "html",
                 success: function (data) {
                     $('#_UsuarioLogeado').html(data);
+                }
+            });
+        });
+        $(function () {
+            $.ajax({
+                url: '/Perfil/MostrarInmueblesUsuario',
+                cache: false,
+                dataType: "html",
+                success: function (data) {
+                    $('#_MostrarInmuebleUsuario').html(data);
                 }
             });
         });

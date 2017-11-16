@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Arriendos.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Arriendos.Controllers
 {
@@ -37,21 +38,26 @@ namespace Arriendos.Controllers
         }
 
         // GET: Propiedades/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.IdCiudad = new SelectList(db.ciudades, "Id", "Nombre");
-            return View();
+            return PartialView("_Create");
         }
 
         // POST: Propiedades/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Direccion,Precio,IdCiudad,Descripcion,Estado")] Propiedad propiedad)
         {
             if (ModelState.IsValid)
             {
+                // debo hacer un metodo que registre las fotos 
+                string idusuario = User.Identity.GetUserId();
+                propiedad.IdUsuario = idusuario;
                 db.propiedades.Add(propiedad);
                 db.SaveChanges();
                 return RedirectToAction("Index");
