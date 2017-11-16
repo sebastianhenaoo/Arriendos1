@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Arriendos.Models.Propiedad>
+
+<div class="body-content container">
+    <br />
+    <div style="background-color:white;height:100%;box-shadow: 4px 4px 4px gray">
+        <div style="padding-top:4px">
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-lg-3">
+                        <center>
+                            <h3 style="font-weight:bold">Arrendatario</h3>
+                            <p>@item.Usuario.Nombre @item.Usuario.Apellido</p>
+                        </center>
+                    </div>
+                    <div class="col-lg-3">
+                        <center>
+                            <h3 style="font-weight:bold">Ciudad</h3>
+                            <p>@item.ciudad.Nombre </p>
+                        </center>
+                    </div>
+                    <div class="col-lg-3">
+                        <center>
+                            <h3 style="font-weight:bold">Dirección</h3>
+                            <p>@item.Direccion</p>
+                        </center>
+                    </div>
+                    <div class="col-lg-3">
+                        <center>
+                            <h3 style="font-weight:bold">Descripción</h3>
+                            <p>@item.Descripcion</p>
+                        </center>
+                    </div>
+                </div>
+                <br /><br />
+                foreach (var photo in item.Fotos.ToList())
+                {
+                    <img style="width:250px;height:250px;margin-left:2%" class="img-perfil" src="@Url.Action("Photos", "Behavior",new {id=photo.Id } )" />
+                }
+                <br /><br /><br />
+                <center><a href="/Propiedades" class="btn btn-primary">Regresar</a></center>
+                <br /><br />
+            }
+        </div>
+        
+    </div>
+    
+</div>

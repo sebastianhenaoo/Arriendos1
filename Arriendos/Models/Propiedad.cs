@@ -13,6 +13,7 @@ namespace Arriendos.Models
         public int Id { get; set; }
         public string Direccion { get; set; }
         public double Precio { get; set; }
+        [Display(Name = "Ciudad")]
         public int IdCiudad { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; } // true=disponible, false=ocupado
