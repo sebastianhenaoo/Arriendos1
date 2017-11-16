@@ -1,13 +1,20 @@
 ﻿@model Arriendos.Models.ApplicationUser
 
-<p>@Model.Nombre @Model.Apellido</p>
+<br />
 <div>
-    <h1>
-        <img src="@Url.Action("UserPhotos", "Home" )" style="width:160px;height:160px; background: #FFFFFF;
-    margin: auto;
-    -moz-border-radius: 60px;
-    border-radius: 100px;
-    padding: 6px;
-    box-shadow: 0px 0px 20px #888;" />
-    </h1>
+    <center>
+        <h1>
+            <img class="img-perfil" src="@Url.Action("UserPhotos", "Home" )" />
+        </h1>
+    </center>
+    <center>
+        <p class="nombre-perfil">@Model.Nombre @Model.Apellido</p>
+    </center>
+    <br />
+    <div>
+        <h4>Identificación</h4>
+        <p>@Model.Identificacion</p>
+        <h4>Correo electronico</h4>
+        <p>@Model.Email</p>
+    </div>
 </div>

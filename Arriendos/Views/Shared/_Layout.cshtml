@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -18,24 +19,45 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("AppArrendatarios", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Perfil", "Index", "Perfil")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        <br /><br />
+        <footer style="height:200px;background:#a8a8a8;">
+            <div class="container">
+                <div style="margin-top:3%">
+                    <center>
+                        <form>
+                            <p style="color:white;display:inline">Terminos y condiciones</p> |
+                            <p style="color:white;display:inline">Contactanós</p> |
+                            <p style="color:white;display:inline">Acerca de nosotros</p> |
+                            <p style="color:white;display:inline">Propiedades</p>
+                        </form>
+                    </center>
+                </div>
+                <div style="margin-top:2%">
+                    <center>
+                        <img style="width:40px;height:40px;" src="https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/home-256.png" />
+                    </center>
+                </div>
+                <div style="margin-top:2%">
+                    <center>
+                        <form>
+                            <p style="color:white;display:inline">Copyright 2017</p> |
+                            <p style="color:white;display:inline">Todos los derechos reservados</p>
+                        </form>
+                    </center>
+                </div>
+            </div>
         </footer>
     </div>
 

@@ -1,15 +1,72 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div>
-    <h1>
-        Shanu Profile Image ..
+<div class="container">
+    <div class="row" style="margin-top:4%">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <center><h1 class="titulo-ppal">Tu casa, la vemos como tú. Construimos tu sueño hasta el final.</h1></center>
+        </div>
 
-        <img src="@Url.Action("UserPhotos", "Home" )" style="width:160px;height:160px; background: #FFFFFF;
-    margin: auto;
-    -moz-border-radius: 60px;
-    border-radius: 100px;
-    padding: 6px;
-    box-shadow: 0px 0px 20px #888;" />
-    </h1>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <center>
+                <form>
+                    <input type="text" placeholder="Ej: Rionegro" class="input-index" width="30" />
+                    <a href="/Propiedades" class="btn btn-primary"><i class="material-icons">search</i></a>
+                </form>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div style="margin-top:6%">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="div-img-1 gray" style="box-shadow: 4px 4px 5px gray">
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="div-img-2 gray" style="box-shadow: 4px 4px 5px gray">
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="div-img-3 gray" style="box-shadow: 4px 4px 5px gray">
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="div-img-4 gray" style="box-shadow: 4px 4px 5px gray">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section scripts {
+    <script>
+    var img = 1;
+    function changebg() {
+    $('.gray').css('filter', 'grayscale(100%)');;
+    if (img == 0) {
+        $('.div-img-1').css('filter', 'grayscale(0%)');
+    }
+    if (img == 1) {
+        $('.div-img-2').css('filter', 'grayscale(0%)');
+    }
+    if (img == 2) {
+        $('.div-img-3').css('filter', 'grayscale(0%)');
+    }
+    if (img == 3) {
+        $('.div-img-4').css('filter', 'grayscale(0%)');
+    }
+    img = (img + 1) % 4;
+    setTimeout(changebg, 2000);
+}
+
+$(function () {
+    $('.div-img-1').css('filter', 'grayscale(0%)');
+    setTimeout(changebg, 2000);
+})
+
+    </script>
+}

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #ebeced;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,225 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.titulo-ppal {
+    text-shadow: 4px 4px 4px black;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.titulo-prop {
+    text-shadow: 4px 4px 4px black;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.input-index {
+    margin-top: 4%;
+    width: 100%;
+    height: 47px;
+}
+
+.gray {
+    filter: grayscale(100%);
+}
+
+.div-img-1 {
+    width: 100%;
+    height: 200px;
+    background-image: url("https://i.ytimg.com/vi/hDpJmU0MaBI/maxresdefault.jpg");
+    background-size: cover;
+}
+
+.div-img-2 {
+    width: 100%;
+    height: 200px;
+    background-image: url("http://i4.au.reastatic.net/home-ideas/raw/fd6b1aaee1ce1c1cf749c645ae3da060cc04751c6c75ebd08ca1bf7d2a77713c/facades.jpg");
+    background-size: cover;
+}
+
+
+.div-img-3 {
+    width: 100%;
+    height: 200px;
+    background-image: url("http://cdn.trendir.com/wp-content/uploads/2016/09/Glass-Graham-House-by-E.-Cobb-Architects-900x751.jpg");
+    background-size: cover;
+}
+
+.div-img-4 {
+    width: 100%;
+    height: 200px;
+    background-image: url("http://i3.au.reastatic.net/home-ideas/raw/a2a34b386edd6b446a5e3609bca147a932351e4cf61cb8a64cb57b53b396589c/facades.jpg");
+    background-size: cover;
+}
+
+.div-prop {
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    box-shadow: 4px 4px 4px gray;
+}
+
+.img-prop {
+    width: 100%;
+    height: 160px;
+    margin-top: 8%;
+    margin-left: 6%;
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    height: 100%;
+}
+
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+}
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+
+.pac-container {
+    font-family: Roboto;
+}
+
+#type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+}
+
+    #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+#target {
+    width: 345px;
+}
+
+.slider {
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
+}
+
+    .slider ul {
+        display: flex;
+        padding: 50px;
+        width: 3000px;
+        animation: cambio 20s infinite;
+    }
+
+    .slider li {
+        width: 100%;
+        list-style: none;
+    }
+
+    .slider img {
+        width: 100%;
+        height: 100%;
+    }
+
+@keyframes cambio {
+    0% {
+        margin-left: 0%;
+    }
+
+    20% {
+        margin-left: 0%;
+    }
+
+    25% {
+        margin-left: -100%;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    100% {
+        margin-left: -300%;
+    }
+}
+
+.relacionados {
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+}
+
+.texto2 {
+    position: relative;
+    top: -390px;
+    left: 400px;
+}
+
+.color-div {
+    height: auto;
+    background-color: white;
+    box-shadow: 4px 4px 4px gray;
+}
+
+.color-div2 {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 4px 4px 4px gray;
+}
+
+.img-perfil {
+    width: 160px;
+    height: 160px;
+    margin-top: -20%;
+    background: #FFFFFF;
+    margin: auto;
+    -moz-border-radius: 60px;
+    border-radius: 100px;
+    padding: 6px;
+    box-shadow: 0px 0px 20px #888;
+}
+
+.nombre-perfil{
+    font-size: 30px;
+    font-weight: bold;
 }
