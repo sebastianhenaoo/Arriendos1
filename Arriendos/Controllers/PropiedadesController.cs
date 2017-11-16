@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Arriendos.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Arriendos.Controllers
 {
@@ -17,23 +18,28 @@ namespace Arriendos.Controllers
         // GET: Propiedades
         public ActionResult Index()
         {
+
             var propiedades = db.propiedades.Include(p => p.ciudad);
             return View(propiedades.ToList());
         }
 
         // GET: Propiedades/Details/5
-        public ActionResult Details(int? id)
+         public ActionResult Details (int? id)
         {
-            if (id == null)
+             
+            int idPropiedad = db.propiedades.Find(id).Id;
+            string idusuario = User.Identity.GetUserId();
+            Postular postular = new Postular()
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Propiedad propiedad = db.propiedades.Find(id);
-            if (propiedad == null)
-            {
-                return HttpNotFound();
-            }
-            return View(propiedad);
+                IdPropiedad = idPropiedad,
+                IdUsuario = idusuario
+
+            };
+            db.postulaciones.Add(postular);
+            db.SaveChanges();
+
+            
+            return View();
         }
 
         // GET: Propiedades/Create
@@ -128,5 +134,6 @@ namespace Arriendos.Controllers
             }
             base.Dispose(disposing);
         }
+       
     }
 }
