@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201711160155274_first.Designer.cs">
       <DependentUpon>201711160155274_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711161613232_first-migration.cs" />
+    <Compile Include="Migrations\201711161613232_first-migration.Designer.cs">
+      <DependentUpon>201711161613232_first-migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Ciudad.cs" />
@@ -315,6 +319,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711160155274_first.resx">
       <DependentUpon>201711160155274_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161613232_first-migration.resx">
+      <DependentUpon>201711161613232_first-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

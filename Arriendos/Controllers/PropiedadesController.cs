@@ -49,14 +49,13 @@ namespace Arriendos.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Direccion,Precio,IdCiudad,Descripcion,Estado")] Propiedad propiedad)
+        public ActionResult Create(Propiedad propiedad)
         {
             if (ModelState.IsValid)
             {
                 // debo hacer un metodo que registre las fotos 
                 string idusuario = User.Identity.GetUserId();
+                propiedad.Estado = true;
                 propiedad.IdUsuario = idusuario;
                 db.propiedades.Add(propiedad);
                 db.SaveChanges();

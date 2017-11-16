@@ -46,5 +46,14 @@ namespace Arriendos.Controllers
             }
             return View("Index");
         }
+
+        public ActionResult MostrarInmueblesUsuario()
+        {
+            BehaviorController behavior = new BehaviorController();
+            string idusuario = User.Identity.GetUserId();
+            var propiedades = behavior.PropiedadesUsuarioActual(idusuario);
+
+            return PartialView("_MostrarInmueblesUsuario",propiedades);
+        }
     }
 }
