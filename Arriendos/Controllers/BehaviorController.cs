@@ -65,6 +65,22 @@ namespace Arriendos.Controllers
             var propiedades = db.propiedades.Where(p => p.IdUsuario == idusuario).Include(p => p.Fotos).ToList();
             return propiedades;
         }
+
+        public bool Postular(Postular postulado)
+        {
+            if (ModelState.IsValid)
+            {
+                db.postulaciones.Add(postulado);
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+
+
+        }
+
+
         [Authorize]
         public FileContentResult Photos(int id)
         {

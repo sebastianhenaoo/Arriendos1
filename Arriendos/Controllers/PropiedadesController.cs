@@ -25,22 +25,25 @@ namespace Arriendos.Controllers
         }
 
         // GET: Propiedades/Details/5
-         public ActionResult Details (int? id)
+         public ActionResult Postular (int? id)
         {
              
             int idPropiedad = db.propiedades.Find(id).Id;
             string idusuario = User.Identity.GetUserId();
+            BehaviorController behavior = new BehaviorController();
+          
             Postular postular = new Postular()
             {
                 IdPropiedad = idPropiedad,
                 IdUsuario = idusuario
 
             };
-            db.postulaciones.Add(postular);
-            db.SaveChanges();
+            if (behavior.Postular(postular))
+            {
+                return RedirectToAction("Index");
 
-            
-            return View();
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: Propiedades/Create
