@@ -3,26 +3,45 @@
         ViewBag.Title = "Index";
     }
 
- <center>
-    <h2 class="titulo-prop">Mis propiedades</h2>
-</center>
-<br>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th></th>
-    </tr>
+    <h2>Index</h2>
 
-    @foreach (var item in Model)
-    {
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                <p>Foto</p>
+            </th>
+            <th>
+                <p>Foto</p>
+            </th>
+            <th>
+                <p>Foto</p>
+            </th>
+            <th>
+                <p>Foto</p>
+            </th>
+            <th></th>
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                @foreach(var photo in item.Fotos.ToList()) {
+                    <td>
+                        <img class="img-perfil" src="@Url.Action("Photos", "Behavior",new {id=photo.Id } )" />
+                    </td>
+                }
+                
+            </tr>
+        }
 
 </table>
 

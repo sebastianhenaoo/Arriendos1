@@ -1,7 +1,9 @@
 ﻿using Arriendos.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -60,13 +62,32 @@ namespace Arriendos.Controllers
 
         public dynamic PropiedadesUsuarioActual(string idusuario)
         {
-            var propiedades = db.propiedades.Where(p => p.IdUsuario == idusuario).ToList();
+            var propiedades = db.propiedades.Where(p => p.IdUsuario == idusuario).Include(p => p.Fotos).ToList();
             return propiedades;
         }
-        
+        [Authorize]
+        public FileContentResult Photos(int id)
+        {
+            if (id <= 0)
+            {
+                string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.png");
 
+                byte[] imageData = null;
+                FileInfo fileInfo = new FileInfo(fileName);
+                long imageFileLength = fileInfo.Length;
+                FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                imageData = br.ReadBytes((int)imageFileLength);
 
+                return File(imageData, "image/png");
 
+            }
+            // to get the user details to load user Image 
+            var bd = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+            var Image = bd.Fotos.Where(x => x.Id == id).FirstOrDefault();
 
+            return new FileContentResult(Image.Imagen, "image/jpeg");
+        }
     }
+
 }
