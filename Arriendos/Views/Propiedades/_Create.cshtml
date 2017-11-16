@@ -17,30 +17,33 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+        
         <div class="form-group">
-            <p>Foto 1</p>
+            <p style="font-weight:bold">Foto 1</p>
             <div class="col-md-10">
                 <input type="file" name="Fotos" value="1" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
             </div>
         </div>
         <div class="form-group">
-            <p>Foto 2</p>
+            <p style="font-weight:bold">Foto 2</p>
             <div class="col-md-10">
                 <input type="file" name="Fotos" value="2" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
             </div>
         </div>
         <div class="form-group">
-            <p>Foto 3</p>
+            <p style="font-weight:bold">Foto 3</p>
             <div class="col-md-10">
                 <input type="file" name="Fotos" value="3" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
             </div>
         </div>
         <div class="form-group">
-            <p>Foto 4</p>
+            <p style="font-weight:bold">Foto 4</p>
             <div class="col-md-10">
                 <input type="file" name="Fotos" value="4" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
             </div>
         </div>
+
+        <br />
 
         <div class="form-group">
             @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label col-md-2" })
