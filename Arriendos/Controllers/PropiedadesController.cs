@@ -19,7 +19,7 @@ namespace Arriendos.Controllers
         public ActionResult Index()
         {
 
-            var propiedades = db.propiedades.Include(p => p.ciudad);
+            var propiedades = db.propiedades.Where(p=> p.Estado==true).Include(p => p.ciudad).Include(p=>p.Fotos);
             return View(propiedades.ToList());
         }
 

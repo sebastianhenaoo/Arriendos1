@@ -62,7 +62,7 @@
             <div class="div-prop">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5">
-                        <img src="http://cdn.trendir.com/wp-content/uploads/2016/09/Glass-Graham-House-by-E.-Cobb-Architects-900x751.jpg" class="img-prop" />
+                        <img src="@Url.Action("Photos", "Behavior",new {id=item.Fotos[0].Id } )" class="img-prop" />
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 visible-md visible-sm visible-lg">
                         <h3>@Html.DisplayFor(modelItem => item.Direccion)</h3>
