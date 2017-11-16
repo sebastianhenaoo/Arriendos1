@@ -17,6 +17,9 @@ namespace Arriendos.Models
         public string Descripcion { get; set; }
         public bool Estado { get; set; } // true=disponible, false=ocupado
         public string IdUsuario { get; set; }
+
+        public List<Foto> Fotos { get; set; }
+
         [ForeignKey("IdUsuario")]
         public virtual ApplicationUser Usuario { get; set; }
 

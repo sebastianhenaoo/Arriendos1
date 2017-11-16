@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,6 +23,49 @@ namespace Arriendos.Controllers
             ApplicationUser Usuarioactual = db.Users.Find(idusuario);
             return Usuarioactual;
         }
+        public bool CrearPropiedad(Propiedad propiedad)
+        {
+
+            if (ModelState.IsValid)
+            {
+                // debo hacer un metodo que registre las fotos 
+                propiedad.Estado = true;
+                db.propiedades.Add(propiedad);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool CrearFoto(Foto foto)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Fotos.Add(foto);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public byte[] convertirImagen(HttpPostedFileBase foto)
+        {
+            byte[] imageData = null;           
+            HttpPostedFileBase poImgFile = foto;
+
+           using (var binary = new BinaryReader(poImgFile.InputStream))
+           {
+            imageData = binary.ReadBytes(poImgFile.ContentLength);
+           }           
+           return imageData;
+        }
+
+        public dynamic PropiedadesUsuarioActual(string idusuario)
+        {
+            var propiedades = db.propiedades.Where(p => p.IdUsuario == idusuario).ToList();
+            return propiedades;
+        }
+        
+
+
 
 
     }
