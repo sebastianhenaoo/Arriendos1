@@ -4,14 +4,15 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<center>
+    <h2 class="titulo-prop">Crear Propiedad</h2>
+</center>
 
 @using (Html.BeginForm("InmuebleFoto", "Perfil", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Propiedad Registrar</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

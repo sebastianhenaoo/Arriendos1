@@ -46,14 +46,5 @@ namespace Arriendos.Controllers
             }
             return View("Index");
         }
-
-        public FileContentResult MostrarInmueblesUsuario()
-        {
-            string idusuario = User.Identity.GetUserId();
-            var bd = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-            var fotos = bd.Fotos.Where(x => x.IdPropiedad == 15).FirstOrDefault();
-
-            return new FileContentResult(fotos.Imagen, "image/jpeg");
-        }
     }
 }
