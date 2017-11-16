@@ -1,27 +1,28 @@
-﻿@model Arriendos.Models.Foto
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item)" style="width:160px;height:160px; background: #FFFFFF;
-    margin: auto;
-    -moz-border-radius: 60px;
-    border-radius: 100px;
-    padding: 6px;
-    box-shadow: 0px 0px 20px #888;" />
-                
-            </td>
-        </tr>
+﻿@model IEnumerable<Arriendos.Models.Propiedad>
+    @{
+        ViewBag.Title = "Index";
     }
 
-</table>
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+            </tr>
+        }
+
+    </table>

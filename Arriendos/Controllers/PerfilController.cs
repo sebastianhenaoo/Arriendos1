@@ -47,13 +47,13 @@ namespace Arriendos.Controllers
             return View("Index");
         }
 
-        public FileContentResult MostrarInmueblesUsuario()
+        public ActionResult MostrarInmueblesUsuario()
         {
+            BehaviorController behavior = new BehaviorController();
             string idusuario = User.Identity.GetUserId();
-            var bd = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-            var fotos = bd.Fotos.Where(x => x.IdPropiedad == 15).FirstOrDefault();
+            var propiedades = behavior.PropiedadesUsuarioActual(idusuario);
 
-            return new FileContentResult(fotos.Imagen, "image/jpeg");
+            return PartialView("_MostrarInmueblesUsuario",propiedades);
         }
     }
 }
